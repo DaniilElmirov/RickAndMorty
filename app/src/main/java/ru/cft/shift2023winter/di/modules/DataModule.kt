@@ -3,6 +3,8 @@ package ru.cft.shift2023winter.di.modules
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
@@ -35,10 +37,18 @@ interface DataModule {
 
         @ApplicationScope
         @Provides
-        fun provideRetrofit(): Retrofit = Retrofit.Builder()
+        fun provideRetrofit(httpClient: OkHttpClient): Retrofit = Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
             .baseUrl(BASE_URL)
+            .client(httpClient)
             .build()
+
+        @ApplicationScope
+        @Provides
+        fun provideHttpClient(): OkHttpClient = OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply{ level = HttpLoggingInterceptor.Level.BODY })
+            .build()
+
 
         @ApplicationScope
         @Provides

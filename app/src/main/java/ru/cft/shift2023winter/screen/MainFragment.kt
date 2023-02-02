@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.coroutines.launch
+import ru.cft.shift2023winter.R
 import ru.cft.shift2023winter.databinding.FragmentMainBinding
 import ru.cft.shift2023winter.domain.entities.Character
 import ru.cft.shift2023winter.presentation.RickAndMortyApplication
@@ -67,12 +70,10 @@ class MainFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 mainViewModel.state.collect {
                     when (it) {
-                        UiState.Initial -> Unit
-                        UiState.Loading -> Unit
-                        is UiState.Content -> {
-                            characterListAdapter.characterList = it.characterList
-                        }
-                        is UiState.Error -> Unit
+                        UiState.Initial -> showInitial()
+                        UiState.Loading -> showProgress()
+                        is UiState.Content -> showContent(it.characterList)
+                        is UiState.Error -> showError(it.message)
                     }
                 }
             }
@@ -83,6 +84,48 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showInitial(){
+        binding.apply {
+            rvCharacterList.isVisible = false
+            progressBar.isVisible = false
+            errorText.isVisible = false
+        }
+    }
+
+    private fun showProgress() {
+        binding.apply {
+            rvCharacterList.isVisible = false
+            progressBar.isVisible = true
+            errorText.isVisible = false
+
+            progressBar.startAnimation(
+                AnimationUtils.loadAnimation(requireContext(), R.anim.anim_progress_bar)
+            )
+        }
+    }
+
+    private fun showContent(characterList: List<Character>) {
+        binding.apply {
+            rvCharacterList.isVisible = true
+            progressBar.isVisible = false
+            errorText.isVisible = false
+
+            progressBar.clearAnimation()
+        }
+
+        characterListAdapter.characterList = characterList
+    }
+
+    private fun showError(message: String?) {
+        binding.apply {
+            rvCharacterList.isVisible = false
+            progressBar.isVisible = false
+            errorText.isVisible = true
+
+            errorText.text = message ?: requireContext().getText(R.string.unknown_error)
+        }
     }
 
     private fun launchCharacterDetailsFragment(character: Character) {
