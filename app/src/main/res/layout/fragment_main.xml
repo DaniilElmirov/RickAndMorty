@@ -30,6 +30,24 @@
         android:layout_gravity="center"
 
         android:gravity="center" />
+
+    <Button
+        android:id="@+id/b_prev_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="@dimen/margin_4"
+        android:text="@string/b_prev"/>
+
+    <Button
+        android:id="@+id/b_next_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="@dimen/margin_4"
+        android:text="@string/b_next"/>
 </FrameLayout>
 
 
