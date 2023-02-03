@@ -18,12 +18,18 @@ class MainViewModel @Inject constructor(
     private val _state: MutableStateFlow<UiState> = MutableStateFlow(UiState.Initial)
     val state: StateFlow<UiState> = _state.asStateFlow()
 
-    fun loadData() {
+    private var currentPage = START_PAGE
+
+    init {
+        loadData(START_PAGE)
+    }
+
+    private fun loadData(page: Int) {
         viewModelScope.launch {
             _state.value = UiState.Loading
 
             try {
-                val characterList = getCharactersUseCase()
+                val characterList = getCharactersUseCase(page)
                 _state.value = UiState.Content(characterList)
             } catch (rethrow: CancellationException) {
                 throw rethrow
@@ -31,5 +37,19 @@ class MainViewModel @Inject constructor(
                 _state.value = UiState.Error(ex.message)
             }
         }
+    }
+
+    fun nextPage() {
+        loadData(++currentPage)
+    }
+
+    fun prevPage() {
+        if (currentPage == 1) return
+
+        loadData(--currentPage)
+    }
+
+    companion object {
+        private const val START_PAGE = 1
     }
 }

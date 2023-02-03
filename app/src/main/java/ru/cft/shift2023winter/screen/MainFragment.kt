@@ -78,7 +78,14 @@ class MainFragment : Fragment() {
                 }
             }
         }
-        mainViewModel.loadData()
+
+        binding.bNextPage.setOnClickListener {
+            mainViewModel.nextPage()
+        }
+
+        binding.bPrevPage.setOnClickListener {
+            mainViewModel.prevPage()
+        }
     }
 
     override fun onDestroyView() {
@@ -92,6 +99,9 @@ class MainFragment : Fragment() {
             progressBar.isVisible = true
             errorText.isVisible = false
 
+            bPrevPage.isVisible = false
+            bNextPage.isVisible = false
+
             progressBar.startAnimation(
                 AnimationUtils.loadAnimation(requireContext(), R.anim.anim_progress_bar)
             )
@@ -104,6 +114,9 @@ class MainFragment : Fragment() {
             progressBar.isVisible = false
             errorText.isVisible = false
 
+            bPrevPage.isVisible = true
+            bNextPage.isVisible = true
+
             progressBar.clearAnimation()
         }
 
@@ -115,6 +128,9 @@ class MainFragment : Fragment() {
             rvCharacterList.isVisible = false
             progressBar.isVisible = false
             errorText.isVisible = true
+
+            bPrevPage.isVisible = false
+            bNextPage.isVisible = false
 
             errorText.text = message ?: requireContext().getText(R.string.unknown_error)
         }
