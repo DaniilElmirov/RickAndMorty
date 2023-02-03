@@ -4,5 +4,5 @@ import ru.cft.shift2023winter.domain.entities.Character
 
 interface RickAndMortyCharacterRepository {
 
-    suspend fun getCharacterList(): List<Character>
+    suspend fun getCharacterList(page: Int): List<Character>
 }

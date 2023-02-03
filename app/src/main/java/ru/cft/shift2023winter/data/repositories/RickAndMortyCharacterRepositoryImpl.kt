@@ -11,6 +11,6 @@ class RickAndMortyCharacterRepositoryImpl @Inject constructor(
     private val api: RickAndMortyApi,
 ) : RickAndMortyCharacterRepository {
 
-    override suspend fun getCharacterList(): List<Character> =
-        api.getCharacterResponse().results.map { characterDtoMapper(it) }
+    override suspend fun getCharacterList(page: Int): List<Character> =
+        api.getCharacterResponse(page).results.map { characterDtoMapper(it) }
 }

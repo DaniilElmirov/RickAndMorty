@@ -6,6 +6,6 @@ import javax.inject.Inject
 
 class GetCharactersUseCase @Inject constructor(private val rickAndMortyCharacterRepository: RickAndMortyCharacterRepository) {
 
-    suspend operator fun invoke(): List<Character> =
-        rickAndMortyCharacterRepository.getCharacterList()
+    suspend operator fun invoke(page: Int): List<Character> =
+        rickAndMortyCharacterRepository.getCharacterList(page)
 }
