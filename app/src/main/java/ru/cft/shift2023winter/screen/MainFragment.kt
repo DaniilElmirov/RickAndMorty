@@ -70,7 +70,7 @@ class MainFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 mainViewModel.state.collect {
                     when (it) {
-                        UiState.Initial -> showInitial()
+                        UiState.Initial -> Unit
                         UiState.Loading -> showProgress()
                         is UiState.Content -> showContent(it.characterList)
                         is UiState.Error -> showError(it.message)
@@ -84,14 +84,6 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun showInitial(){
-        binding.apply {
-            rvCharacterList.isVisible = false
-            progressBar.isVisible = false
-            errorText.isVisible = false
-        }
     }
 
     private fun showProgress() {

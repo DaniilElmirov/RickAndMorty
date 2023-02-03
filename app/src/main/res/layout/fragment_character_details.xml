@@ -1,224 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/padding_10">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/character_image"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_400"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        android:scaleType="centerCrop"
-
-        tools:src="@drawable/img" />
-
-
-    <TextView
-        android:id="@+id/title_character_name"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_10">
 
-        app:layout_constraintStart_toStartOf="@id/character_image"
-        app:layout_constraintTop_toBottomOf="@id/character_image"
-        app:layout_constraintEnd_toStartOf="@id/character_name"
+        <ImageView
+            android:id="@+id/character_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        android:layout_marginTop="@dimen/margin_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
-        android:text="@string/title_name" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:src="@drawable/img" />
 
-    <TextView
-        android:id="@+id/character_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        app:layout_constraintStart_toEndOf="@id/title_character_name"
-        app:layout_constraintTop_toTopOf="@id/title_character_name"
-        app:layout_constraintBottom_toBottomOf="@id/title_character_name"
+        <TextView
+            android:id="@+id/title_character_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:layout_marginStart="@dimen/margin_4"
+            app:layout_constraintStart_toStartOf="@id/character_image"
+            app:layout_constraintTop_toBottomOf="@id/character_image"
+            app:layout_constraintEnd_toStartOf="@id/character_name"
 
-        tools:text="Rick and morty" />
+            android:layout_marginTop="@dimen/margin_4"
 
+            android:text="@string/title_name" />
 
-    <TextView
-        android:id="@+id/title_character_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/character_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintEnd_toStartOf="@id/character_status"
-        app:layout_constraintStart_toStartOf="@id/character_image"
-        app:layout_constraintTop_toBottomOf="@id/character_image"
+            app:layout_constraintStart_toEndOf="@id/title_character_name"
+            app:layout_constraintTop_toTopOf="@id/title_character_name"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_name"
 
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginStart="@dimen/margin_4"
 
-        android:layout_marginTop="@dimen/margin_4"
+            tools:text="Rick and morty" />
 
-        android:text="@string/title_status" />
 
-    <TextView
-        android:id="@+id/character_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/title_character_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintBottom_toBottomOf="@id/title_character_status"
-        app:layout_constraintEnd_toEndOf="@id/character_image"
-        app:layout_constraintStart_toEndOf="@id/title_character_status"
-        app:layout_constraintTop_toTopOf="@id/title_character_status"
+            app:layout_constraintEnd_toStartOf="@id/character_status"
+            app:layout_constraintStart_toStartOf="@id/character_image"
+            app:layout_constraintTop_toBottomOf="@id/character_image"
 
-        android:layout_marginStart="@dimen/margin_4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
 
-        tools:text="Dead" />
+            android:layout_marginTop="@dimen/margin_4"
 
+            android:text="@string/title_status" />
 
-    <TextView
-        android:id="@+id/title_character_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/character_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintStart_toStartOf="@id/title_character_name"
-        app:layout_constraintTop_toBottomOf="@id/title_character_name"
-        app:layout_constraintEnd_toStartOf="@+id/character_gender"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_status"
+            app:layout_constraintEnd_toEndOf="@id/character_image"
+            app:layout_constraintStart_toEndOf="@id/title_character_status"
+            app:layout_constraintTop_toTopOf="@id/title_character_status"
 
-        android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_4"
 
-        android:text="@string/title_gender" />
+            tools:text="Dead" />
 
-    <TextView
-        android:id="@+id/character_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        app:layout_constraintStart_toEndOf="@id/title_character_gender"
-        app:layout_constraintTop_toTopOf="@id/title_character_gender"
-        app:layout_constraintBottom_toBottomOf="@id/title_character_gender"
+        <TextView
+            android:id="@+id/title_character_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:layout_marginStart="@dimen/margin_4"
+            app:layout_constraintStart_toStartOf="@id/title_character_name"
+            app:layout_constraintTop_toBottomOf="@id/title_character_name"
+            app:layout_constraintEnd_toStartOf="@+id/character_gender"
 
-        tools:text="Male" />
+            android:layout_marginTop="@dimen/margin_4"
 
+            android:text="@string/title_gender" />
 
-    <TextView
-        android:id="@+id/title_character_species"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/character_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintEnd_toStartOf="@+id/character_species"
-        app:layout_constraintStart_toStartOf="@id/character_image"
-        app:layout_constraintTop_toBottomOf="@id/title_character_gender"
+            app:layout_constraintStart_toEndOf="@id/title_character_gender"
+            app:layout_constraintTop_toTopOf="@id/title_character_gender"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_gender"
 
-        android:layout_marginTop="@dimen/margin_20"
+            android:layout_marginStart="@dimen/margin_4"
 
-        android:text="@string/title_species" />
+            tools:text="Male" />
 
-    <TextView
-        android:id="@+id/character_species"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toTopOf="@id/title_character_species"
-        app:layout_constraintStart_toEndOf="@id/title_character_species"
-        app:layout_constraintBottom_toBottomOf="@id/title_character_species"
+        <TextView
+            android:id="@+id/title_character_species"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:layout_marginStart="@dimen/margin_4"
+            app:layout_constraintEnd_toStartOf="@+id/character_species"
+            app:layout_constraintStart_toStartOf="@id/character_image"
+            app:layout_constraintTop_toBottomOf="@id/title_character_gender"
 
-        tools:text="Human" />
+            android:layout_marginTop="@dimen/margin_20"
 
+            android:text="@string/title_species" />
 
-    <TextView
-        android:id="@+id/title_character_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/character_species"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintBottom_toBottomOf="@id/title_character_species"
-        app:layout_constraintEnd_toStartOf="@id/character_type"
-        app:layout_constraintStart_toEndOf="@id/character_species"
-        app:layout_constraintTop_toTopOf="@id/title_character_species"
+            app:layout_constraintTop_toTopOf="@id/title_character_species"
+            app:layout_constraintStart_toEndOf="@id/title_character_species"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_species"
 
-        android:layout_marginStart="@dimen/margin_20"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginStart="@dimen/margin_4"
 
-        android:text="@string/title_type" />
+            tools:text="Human" />
 
-    <TextView
-        android:id="@+id/character_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toTopOf="@id/title_character_type"
-        app:layout_constraintBottom_toBottomOf="@id/title_character_type"
-        app:layout_constraintStart_toEndOf="@id/title_character_type"
-        app:layout_constraintEnd_toEndOf="@id/character_image"
+        <TextView
+            android:id="@+id/title_character_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:layout_marginStart="@dimen/margin_4"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_species"
+            app:layout_constraintEnd_toStartOf="@id/character_type"
+            app:layout_constraintStart_toEndOf="@id/character_species"
+            app:layout_constraintTop_toTopOf="@id/title_character_species"
 
-        tools:text="Genetic experiment" />
+            android:layout_marginStart="@dimen/margin_20"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
 
+            android:text="@string/title_type" />
 
-    <TextView
-        android:id="@+id/title_character_origin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/character_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintEnd_toStartOf="@+id/character_origin"
-        app:layout_constraintStart_toStartOf="@id/title_character_status"
-        app:layout_constraintTop_toBottomOf="@id/title_character_status"
+            app:layout_constraintTop_toTopOf="@id/title_character_type"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_type"
+            app:layout_constraintStart_toEndOf="@id/title_character_type"
+            app:layout_constraintEnd_toEndOf="@id/character_image"
 
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginStart="@dimen/margin_4"
 
-        android:layout_marginTop="@dimen/margin_4"
+            tools:text="Genetic experiment" />
 
-        android:text="@string/title_origin" />
 
-    <TextView
-        android:id="@+id/character_origin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/title_character_origin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintStart_toEndOf="@id/title_character_origin"
-        app:layout_constraintTop_toTopOf="@id/title_character_origin"
-        app:layout_constraintBottom_toBottomOf="@id/title_character_origin"
-        app:layout_constraintEnd_toEndOf="@id/character_image"
+            app:layout_constraintEnd_toStartOf="@+id/character_origin"
+            app:layout_constraintStart_toStartOf="@id/title_character_status"
+            app:layout_constraintTop_toBottomOf="@id/title_character_status"
 
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:layout_marginStart="@dimen/margin_4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
 
-        tools:text="Earth" />
+            android:layout_marginTop="@dimen/margin_4"
 
+            android:text="@string/title_origin" />
 
-    <TextView
-        android:id="@+id/title_character_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/character_origin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintStart_toStartOf="@id/character_image"
-        app:layout_constraintTop_toBottomOf="@id/title_character_species"
-        app:layout_constraintEnd_toStartOf="@+id/character_location"
+            app:layout_constraintStart_toEndOf="@id/title_character_origin"
+            app:layout_constraintTop_toTopOf="@id/title_character_origin"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_origin"
+            app:layout_constraintEnd_toEndOf="@id/character_image"
 
-        android:layout_marginTop="@dimen/margin_20"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginStart="@dimen/margin_4"
 
-        android:text="@string/title_location" />
+            tools:text="Earth" />
 
-    <TextView
-        android:id="@+id/character_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        app:layout_constraintStart_toEndOf="@id/title_character_location"
-        app:layout_constraintTop_toTopOf="@id/title_character_location"
-        app:layout_constraintBottom_toBottomOf="@id/title_character_location"
+        <TextView
+            android:id="@+id/title_character_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:layout_marginStart="@dimen/margin_4"
+            app:layout_constraintStart_toStartOf="@id/character_image"
+            app:layout_constraintTop_toBottomOf="@id/title_character_species"
+            app:layout_constraintEnd_toStartOf="@+id/character_location"
 
-        tools:text="Earth"/>
+            android:layout_marginTop="@dimen/margin_20"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="@string/title_location" />
+
+        <TextView
+            android:id="@+id/character_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toEndOf="@id/title_character_location"
+            app:layout_constraintTop_toTopOf="@id/title_character_location"
+            app:layout_constraintBottom_toBottomOf="@id/title_character_location"
+
+            android:layout_marginStart="@dimen/margin_4"
+
+            tools:text="Earth"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

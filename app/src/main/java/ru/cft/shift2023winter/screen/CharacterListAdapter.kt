@@ -3,7 +3,6 @@ package ru.cft.shift2023winter.screen
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import ru.cft.shift2023winter.R
 import ru.cft.shift2023winter.domain.entities.Character
 
@@ -34,7 +33,6 @@ class CharacterListAdapter(
             onCharacterItemClickListener?.invoke(characterItem)
         }
 
-        holder.characterName.text = characterItem.name
-        holder.characterImage.load(characterItem.image)
+        holder.bind(characterItem)
     }
 }
